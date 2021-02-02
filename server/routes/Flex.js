@@ -7,9 +7,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
     Flex.find(function (err, docs) {
         if (err) {
-            console.log(err);
+            res.status(400).send("Failed to load flexes data.");
         } else {
-            res.json(docs);
+            res.status(200).json(docs);
         }
     });
 });
